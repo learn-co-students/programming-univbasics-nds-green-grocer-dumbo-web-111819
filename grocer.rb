@@ -89,16 +89,19 @@ def apply_coupons(cart,coupons)
 end
 
 
-#def apply_coupons(cart, coupons)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
-#end
-
 def apply_clearance(cart)
+  new_array=[]
+  cart.map do |item|
+    new_array << item
+    if item[:clearance] == true
+      item[:price]=(1-0.20) * item[:price]
+      item[:price]=item[:price].round(2)
+    end
+  end
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
+  new_array
 end
 
 def checkout(cart, coupons)

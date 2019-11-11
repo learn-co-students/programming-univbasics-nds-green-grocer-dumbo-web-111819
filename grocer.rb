@@ -105,6 +105,17 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
+  cart=consolidate_cart(cart)
+  cart=apply_coupons(cart,coupons)
+  result=apply_clearance(cart)
+  sum=0
+  result.map do |item|
+    sum+=item[:price]*item[:count]
+  end
+  if sum>100
+    sum=sum*(1-0.10)
+  end
+  sum
   # Consult README for inputs and outputs
   #
   # This method should call

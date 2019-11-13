@@ -1,16 +1,20 @@
 require 'pp'
 require 'pry'
-def find_item_by_name_in_collection(name, collection)
-index = 0 
-  while index < collection.count do 
-  if name == collection[index][:item] 
-  return collection[index]
- else 
-   puts  nil
+
+ def find_item_by_name_in_collection(name, collection)
+  i = 0
+  while i < collection.length do
+    return collection[i] if name === collection[i][:item]
+    i += 1
   end
-   index+=1 
- end 
- end
+  nil
+end
+ 
+ 
+ 
+ 
+ 
+ 
 def consolidate_cart(cart)
   output = {}
   cart.each do |item|
@@ -20,10 +24,9 @@ def consolidate_cart(cart)
     else
       output[item_name] = item[item_name]
       output[item_name][:count] = 1 
-    end
+    
   end
   output
-end
 end
 
 # if cart[index]item already exists (.unique?) add item 

@@ -1,15 +1,34 @@
+require 'pp'
+require 'pry'
 def find_item_by_name_in_collection(name, collection)
-  # Implement me first!
-  #
-  # Consult README for inputs and outputs
+index = 0 
+  while index < collection.count do 
+  if name == collection[index][:item] 
+  return collection[index]
+ else 
+   puts  nil
+  end
+   index+=1 
+ end 
+ end
+def consolidate_cart(cart)
+  output = {}
+  cart.each do |item|
+    item_name = item.keys[0]
+    if output[item_name]
+      output[item_name][:count] += 1 
+    else
+      output[item_name] = item[item_name]
+      output[item_name][:count] = 1 
+    end
+  end
+  output
+end
 end
 
-def consolidate_cart(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This returns a new Array that represents the cart. Don't merely
-  # change `cart` (i.e. mutate) it. It's easier to return a new thing.
-end
+# if cart[index]item already exists (.unique?) add item 
+# else push onto array
+
 
 def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs

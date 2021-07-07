@@ -1,7 +1,11 @@
 def find_item_by_name_in_collection(name, collection)
-  # Implement me first!
-  #
-  # Consult README for inputs and outputs
+  new_hash = {}
+  while name
+    if collection.include?(:name)
+      new_hash = {:name => collection}
+      
+  end
+  
 end
 
 def consolidate_cart(cart)
